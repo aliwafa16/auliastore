@@ -13,6 +13,10 @@ class Login_model extends CI_Model{
         ];
         $this->db->insert('user', $data);
     }
+
+    public function userEmail($email){
+        return $this->db->get_where('user',['email_user'=>$email])->row_array();
+    }
 }
 
 
