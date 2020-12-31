@@ -21,7 +21,7 @@ class Login extends CI_Controller{
         if($this->form_validation->run()==FALSE){
             $data['judul']='Halaman Form Login';
             $this->load->view('templates/header', $data);
-            $this->load->view('admin/index');
+            $this->load->view('auth/index');
             $this->load->view('templates/footer');
         }else{
             $this->_login();
@@ -42,7 +42,10 @@ class Login extends CI_Controller{
                         'id_role' => $user['id_role']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('user');
+                    if($user['id_role']==1){
+                        redirect('admin');
+                    }
+                    redirect('pegawai');
                 }else{
                     $this->session->set_flashdata('flashdata', 'Password salah');
                     redirect('login');
@@ -78,7 +81,7 @@ class Login extends CI_Controller{
 
         if($this->form_validation->run()==FALSE){
             $this->load->view('templates/header', $data);
-            $this->load->view('admin/registrasi');
+            $this->load->view('auth/registrasi');
             $this->load->view('templates/footer');
         }else{
             $this->Login_model->userRegistrasi();
