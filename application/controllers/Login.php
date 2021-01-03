@@ -20,9 +20,9 @@ class Login extends CI_Controller{
 
         if($this->form_validation->run()==FALSE){
             $data['judul']='Halaman Form Login';
-            $this->load->view('templates/header', $data);
+            $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/index');
-            $this->load->view('templates/footer');
+            $this->load->view('templates/auth_footer');
         }else{
             $this->_login();
         }
@@ -80,9 +80,9 @@ class Login extends CI_Controller{
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|min_length[6]|matches[password1]');
 
         if($this->form_validation->run()==FALSE){
-            $this->load->view('templates/header', $data);
+            $this->load->view('templates/auth_header', $data);
             $this->load->view('auth/registrasi');
-            $this->load->view('templates/footer');
+            $this->load->view('templates/auth_footer');
         }else{
             $this->Login_model->userRegistrasi();
             $this->session->set_flashdata('flashdata', 'Registrasi berhasil. Silahkan Login!');

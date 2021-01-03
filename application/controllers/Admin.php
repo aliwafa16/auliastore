@@ -9,12 +9,15 @@ class Admin extends CI_Controller{
     public function index(){
         $data['judul']='Auliastore - Halaman admin';
         $data['user'] = $this->Admin_model->getUserData();
-        $this->load->view('templates/admin_header',$data);
-        $this->load->view('templates/admin_sidebar');
-        $this->load->view('templates/admin_navbar',$data);
+        $data['menu'] = $this->Admin_model->getUserMenu();
+        // $data['submenu'] = $this->Admin_model->getUserSubmenu();
+
+        $this->load->view('templates/header',$data);
+        $this->load->view('templates/sidebar', $data);
+        $this->load->view('templates/navbar',$data);
         $this->load->view('admin/index', $data);
-        $this->load->view('templates/admin_footer');
-    
+        $this->load->view('templates/footer');
+
     }
 }
 ?>

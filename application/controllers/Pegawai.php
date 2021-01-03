@@ -10,11 +10,13 @@ class Pegawai extends CI_Controller{
     public function index(){
         $data['judul'] = 'Auliastore - Halaman pegawai';
         $data['user'] = $this->Pegawai_model->getUserData();
-        $this->load->view('templates/pegawai_header', $data);
-        $this->load->view('templates/pegawai_sidebar');
-        $this->load->view('templates/pegawai_navbar', $data);
+        $data['menu'] = $this->Pegawai_model->getUserMenu();
+
+        $this->load->view('templates/header', $data);
+        $this->load->view('templates/sidebar');
+        $this->load->view('templates/navbar', $data);
         $this->load->view('pegawai/index', $data);
-        $this->load->view('templates/pegawai_footer');
+        $this->load->view('templates/footer');
     }
 }
 ?>
