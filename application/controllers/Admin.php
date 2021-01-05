@@ -7,7 +7,7 @@ class Admin extends CI_Controller{
         $this->load->model('Admin_model');
     }
     public function index(){
-        $data['judul']='Auliastore - Halaman admin';
+        $data['judul']='Dashboard';
         $data['user'] = $this->Admin_model->getUserData();
         $data['menu'] = $this->Admin_model->getUserMenu();
         // $data['submenu'] = $this->Admin_model->getUserSubmenu();
