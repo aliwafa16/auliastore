@@ -13,6 +13,22 @@ class Menu_model extends CI_Model{
         $query = $this->db->get();
         return $query->result_array();
     }
+
+    public function getAllMenu(){
+        return $this->db->get('user_menu')->result_array();
+    }
+
+    public function tambahMenu(){
+        $data=[
+            'nama_menu' => $this->input->post('nama_menu',true)
+        ];
+        $this->db->insert('user_menu', $data);
+    }
+
+    public function hapusMenu($id_menu){
+        $this->db->where('id_menu',$id_menu);
+        $this->db->delete('user_menu');
+    }
 }
 
 
