@@ -1,10 +1,13 @@
-<?php 
-class Menu_model extends CI_Model{
-    public function getUserData(){
-       return $this->db->get_where('user',['email_user' => $this->session->userdata('email_user')])->row_array();
+<?php
+class Menu_model extends CI_Model
+{
+    public function getUserData()
+    {
+        return $this->db->get_where('user', ['email_user' => $this->session->userdata('email_user')])->row_array();
     }
 
-    public function getUserMenu(){
+    public function getUserMenu()
+    {
         $this->db->select('user_menu.id_menu,user_menu.nama_menu');
         $this->db->from('user_menu');
         $this->db->join('user_accessmenu', 'user_menu.id_menu = user_accessmenu.id_menu');
@@ -14,23 +17,38 @@ class Menu_model extends CI_Model{
         return $query->result_array();
     }
 
-    public function getAllMenu(){
+    public function getAllMenu()
+    {
         return $this->db->get('user_menu')->result_array();
     }
 
-    public function tambahMenu(){
-        $data=[
-            'nama_menu' => $this->input->post('nama_menu',true)
+    public function tambahMenu()
+    {
+        $data = [
+            'nama_menu' => $this->input->post('nama_menu', true)
         ];
         $this->db->insert('user_menu', $data);
     }
 
-    public function hapusMenu($id_menu){
-        $this->db->where('id_menu',$id_menu);
+    public function hapusMenu($id_menu)
+    {
+        $this->db->where('id_menu', $id_menu);
         $this->db->delete('user_menu');
     }
+
+    public function getMenuByID($id_menu)
+    {
+        return $this->db->get_where('user_menu', ['id_menu' => $id_menu])->row_array();
+    }
+
+    public function editMenu($id_menu)
+    {
+        $data = [
+            'id_menu' => $this->input->post('id_menu', true),
+            'nama_menu' => $this->input->post('nama_menu', true)
+        ];
+
+        $this->db->where('id_menu', $id_menu);
+        $this->db->update('user_menu', $data);
+    }
 }
-
-
-
-?>

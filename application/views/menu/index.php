@@ -12,7 +12,8 @@
                             </div>
                         </div>
                         <div class="col">
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#newMenuModal">Tambah menu</button>
+                            <button type="button" class="btn btn-info tombolTambahMenu" data-toggle="modal" data-target="#menuModal">Tambah menu</button>
+                            <small class="form-text text-danger"><?= $this->form_validation->error('nama_menu'); ?></small>
                         </div>
                     </div>
                     <div class="row">
@@ -44,7 +45,7 @@
                                             <th scope="row"><?= $i; ?></th>
                                             <td><?= $usr_mn['nama_menu'] ?></td>
                                             <td>
-                                                <a href="<?= base_url() ?>menu/edit/<?= $usr_mn['id_menu'] ?>" class="badge badge-primary" data-toggle="modal" data-target="#EditMenuModal">Edit</a>
+                                                <a href="<?= base_url() ?>menu/edit/<?= $usr_mn['id_menu'] ?>" class="badge badge-primary tombolEditMenu" data-toggle="modal" data-target="#menuModal" data-id_menu="<?= $usr_mn['id_menu'] ?>">Edit</a>
                                                 <a href="<?= base_url() ?>menu/hapus/<?= $usr_mn['id_menu'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus menu ?')">Hapus</a>
                                             </td>
                                         </tr>
@@ -64,12 +65,11 @@
 
                 <!-- Modal Menu-->
                 <div>
-                    <!-- Add new menu -->
-                    <div class="modal fade" id="newMenuModal" tabindex="-1" aria-labelledby="newMenuModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuModalLabel" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="newMenuModalLabel">Form Tambah Menu</h5>
+                                    <h5 class="modal-title" id="menuModalLabel">Form Tambah Menu</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -77,6 +77,7 @@
                                 <div class="modal-body">
                                     <form action="<?= base_url() ?>menu/tambahMenu" method="post">
                                         <div class="form-group">
+                                            <input type="hidden" name="id_menu" id="id_menu">
                                             <label for="nama_menu">Nama Menu</label>
                                             <input type="text" class="form-control" id="nama_menu" name="nama_menu">
                                         </div>
@@ -89,35 +90,4 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Edit menu -->
-                    <div class="modal fade" id="EditMenuModal" tabindex="-1" aria-labelledby="EditMenuModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="EditMenuModalLabel">Form Edit Menu</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <form action="<?= base_url() ?>menu/editMenu" method="post">
-                                        <input type="hidden" id="id_menu" name="id_menu" value="">
-                                        <div class="form-group">
-                                            <label for="nama_menu">Nama Menu</label>
-                                            <input type="text" class="form-control" id="nama_menu" name="nama_menu" value="">
-                                        </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                    <button type="submit" class="btn btn-primary">Edit menu</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
-
-
-
-                <!-- Modal Edit Menu -->
