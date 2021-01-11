@@ -1,6 +1,17 @@
 $(function(){
+
+    $('.tombolTambahMenu').on('click', function(){
+        $('#menuModalLabel').html('Form Tambah Menu');
+        $('.modal-footer button[type=submit]').html('Tambah menu');
+        $('.modal-body form').attr('action','http://localhost/auliastore/menu/tambahMenu');
+        $('#id_menu').val('');
+        $('#nama_menu').val('');
+
+    });
+
+
     $('.tombolEditMenu').on('click', function(){
-        $('#menuModalLabel').html('Edit Data Menu');
+        $('#menuModalLabel').html('Form Edit Menu');
         $('.modal-footer button[type=submit]').html('Edit menu');
         $('.modal-body form').attr('action','http://localhost/auliastore/menu/edit');
         const id_menu = $(this).data('id_menu');
