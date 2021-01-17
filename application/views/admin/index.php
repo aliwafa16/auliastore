@@ -117,10 +117,10 @@
                                 <div class="card-body">
                                     <div class="chart-pie pt-4 pb-2">
                                         <div class="row">
-                                            <div class="col">
-                                                <img src="<?= base_url('asset/') ?>img/profil/<?= $user['image_user'] ?>" alt="">
+                                            <div class="col-md-5">
+                                                <img src="<?= base_url('asset/') ?>img/profil/<?= $user['image_user'] ?>" alt="" width="200" height="200">
                                             </div>
-                                            <div class="col">
+                                            <div class="col-md-7">
                                                 <ul class="list-group-flush">
                                                     <li class="list-group-item"><?= $user['nama_user'] ?></li>
                                                     <li class="list-group-item"><?= $user['email_user'] ?></li>
