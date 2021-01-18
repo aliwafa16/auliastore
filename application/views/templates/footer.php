@@ -49,6 +49,9 @@
 
 <script src="<?= base_url('asset/') ?>js/script.js"></script>
 
+<!-- <script type="text/javascript" src="<?= base_url('DataTables/') ?>js/jquery.js"></script> -->
+<script type="text/javascript" src="<?= base_url('DataTables/') ?>js/jquery.dataTables.js"></script>
+
 </body>
 
 </html>

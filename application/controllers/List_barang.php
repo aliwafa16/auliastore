@@ -19,15 +19,17 @@ class List_barang extends CI_Controller{
 
     public function index(){
         $data['judul']='List barang';
+        $data['barang'] = $this->Barang_model->getAllBarang();
         
         // config pagination
-        // $config['base_url'] = base_url('list_barang').'/index/';
-        // $config['total_rows'] = $this->Barang_model->countAllBarang();
+        // $config['base_url'] = base_url('list_barang/');
+        $config['total_rows'] = $this->Barang_model->countAllBarang();
         // $config['per_page'] = 10;
         // $data['data_start'] = $this->uri->segment(3);
-        $data['barang'] = $this->Barang_model->getAllBarang();
+        // $data['barang'] = $this->Barang_model->getBarang($config['per_page'], $data['data_start']);
+        
 
-        // style pagination
+        // // style pagination
         // $config['full_tag_open'] = '<nav><ul class="pagination justify-content-end">';
         // $config['full_tag_close'] = '</ul></nav>';
 

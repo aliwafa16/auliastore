@@ -69,6 +69,12 @@ $(function(){
             }
         });
     });
+    
+    
+    $(document).ready(function(){
+        $('.tableBarang').DataTable();
+        
+	});
 
 
 });

@@ -5,9 +5,13 @@ class Barang_model extends CI_Model{
         return $this->db->get('barang')->result_array();
     }
 
-    // public function countAllBarang(){
-    //     return $this->db->count_all('barang');
-    // }
+    public function getBarang($limt, $start=null){
+        return $this->db->get('barang', $limt, $start)->result_array();
+    }
+
+    public function countAllBarang(){
+        return $this->db->count_all('barang');
+    }
 
     public function tambahBarang(){
         $data=[

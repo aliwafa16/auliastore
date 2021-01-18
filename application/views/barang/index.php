@@ -30,7 +30,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <table class="table table-hover">
+            <table class="table table-hover tableBarang">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">No</th>
@@ -61,6 +61,8 @@
             </table>
         </div>
     </div>
+
+    <?php echo $this->pagination->create_links(); ?>
 
 </div>
 </div>
