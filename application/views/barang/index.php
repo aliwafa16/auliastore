@@ -1,19 +1,9 @@
 <div class="container-fluid">
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">List Barang Auliastore</h1>
-    <div class="row">
-        <div class="col-md-3">
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Masukan keyword..." name="keyword" aria-label="Recipient's username" aria-describedby="button-addon2">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-info" type="submit" id="button-addon2">Cari barang</button>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="row mb-4">
         <div class="col-md-4">
-            <button type="button" class="btn btn-primary tombolTambahBarang" data-toggle="modal" data-target="#barangModal">Tambah List Barang</button>
+            <button type="button" class="btn btn-primary fas-fa-fw-fas-plus tombolTambahBarang" data-toggle="modal" data-target="#barangModal"><i class="fas fa-plus"></i> Tambah List Barang</button>
         </div>
     </div>
     <div class="row">
@@ -42,17 +32,17 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php $i=1;?>
+                    <?php $i = 1; ?>
                     <?php foreach ($barang as $brg) : ?>
                         <tr>
-                            <th scope="row"><?= $i;?></th>
+                            <th scope="row"><?= $i; ?></th>
                             <td><?= $brg['kode_barang'] ?></td>
                             <td><?= $brg['nama_barang'] ?></td>
                             <td><?= $brg['stok_barang'] ?></td>
                             <td><?= $brg['harga_barang'] ?></td>
                             <td>
-                                <a href="<?= base_url() ?>list_barang/edit/<?= $brg['id_barang'] ?>" class="badge badge-primary tombolEditBarang" data-toggle="modal" data-target="#barangModal" data-id_barang="<?= $brg['id_barang'] ?>">Edit</a>
-                                <a href="<?= base_url() ?>list_barang/hapus/<?= $brg['id_barang'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data menu ?')">Hapus</a>
+                                <a href="<?= base_url() ?>list_barang/edit/<?= $brg['id_barang'] ?>" class="badge badge-success tombolEditBarang" data-toggle="modal" data-target="#barangModal" data-id_barang="<?= $brg['id_barang'] ?>"><i class="fas fa-pen-square"></i> Edit</a>
+                                <a href="<?= base_url() ?>list_barang/hapus/<?= $brg['id_barang'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data menu ?')"> <i class="fas fa-trash-alt fa-sm"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

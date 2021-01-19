@@ -69,12 +69,18 @@ $(function(){
             }
         });
     });
-    
-    
-    $(document).ready(function(){
-        $('.tableBarang').DataTable();
-        
-	});
 
+
+    $(document).ready(function() {
+        $('.tableBarang').DataTable({
+            "language": {
+                "zeroRecords": "Data tidak ditemukan",
+                "info": "Halaman _PAGE_ dari _PAGES_",
+                "infoEmpty" : "Data tidak tersedia",
+                "infoFiltered" : "(hasil pencarian dari _MAX_ data)"
+            }
+        });
+
+    });
 
 });
