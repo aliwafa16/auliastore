@@ -42,7 +42,7 @@
                             <td><?= $brg['harga_barang'] ?></td>
                             <td>
                                 <a href="<?= base_url() ?>list_barang/edit/<?= $brg['id_barang'] ?>" class="badge badge-success tombolEditBarang" data-toggle="modal" data-target="#barangModal" data-id_barang="<?= $brg['id_barang'] ?>"><i class="fas fa-pen-square"></i> Edit</a>
-                                <a href="<?= base_url() ?>list_barang/hapus/<?= $brg['id_barang'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data menu ?')"> <i class="fas fa-trash-alt fa-sm"></i> Hapus</a>
+                                <a href="<?= base_url() ?>list_barang/hapus/<?= $brg['id_barang'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data barang ?')"> <i class="fas fa-trash-alt fa-sm"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

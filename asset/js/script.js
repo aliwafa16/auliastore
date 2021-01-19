@@ -47,8 +47,6 @@ $(function(){
         
     });
 
-
-
     $('.tombolEditBarang').on('click',function(){
         $('#barangModalLabel').html('Form Edit Barang');
         $('.modal-footer button[type=submit]').html('Edit Data Barang');
@@ -81,6 +79,32 @@ $(function(){
             }
         });
 
+    });
+
+    $('.tombolTambahBarangMasuk').on('click', function(){
+
+    });
+
+    $('.tombolEditBarangMasuk').on('click',function(){
+        $('#barangMasukModalLabel').html('Form Edit Barang Masuk');
+        $('.modal-footer button[type=submit]').html('Edit Barang Masuk');
+        $('.modal-body form').attr('action','http://localhost/auliastore/barang_masuk/edit');
+        const id_barang_masuk = $(this).data('id_barang_masuk');
+
+        $.ajax({
+            url : 'http://localhost/auliastore/barang_masuk/getEditBarangMasuk',
+            data : {id_barang_masuk : id_barang_masuk},
+            method : 'post',
+            dataType : 'json',
+            success : function(data){
+                $('#tanggal_barang_masuk').val(data.tanggal_barang_masuk);
+                $('#kode_barang_masuk').val(data.kode_barang_masuk);
+                $('#kode_barang').val(data.kode_barang);
+                $('#jumlah_barang_masuk').val(data.jumlah_barang_masuk);
+                $('#tipe_barang').val(data.tipe_barang);
+                $('#harga_barang_masuk').val(data.harga_barang_masuk);
+            }
+        });
     });
 
 });

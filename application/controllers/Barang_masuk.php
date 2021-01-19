@@ -34,5 +34,15 @@ class Barang_masuk extends CI_Controller{
         redirect('barang_masuk');
     }
 
+    public function hapus($id_barang_masuk){
+        $this->Barang_masuk_model->hapusBarangMasuk($id_barang_masuk);
+        $this->session->set_flashdata('flashdata', 'Data barang masuk berhasil dihapus !');
+        redirect('barang_masuk');
+    }
+
+    public function getEditBarangMasuk(){
+        $id_barang_masuk = $this->input->post('id_barang_masuk');
+       echo json_encode($this->Barang_masuk_model->getBarangMasukByID($id_barang_masuk)) ;
+    }
 }
 ?>
