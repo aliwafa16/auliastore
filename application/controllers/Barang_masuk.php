@@ -44,5 +44,12 @@ class Barang_masuk extends CI_Controller{
         $id_barang_masuk = $this->input->post('id_barang_masuk');
        echo json_encode($this->Barang_masuk_model->getBarangMasukByID($id_barang_masuk)) ;
     }
+
+    public function getTanggalBarangMasuk(){
+        $tanggal_masuk=date('d/m/Y');
+        echo json_encode($tanggal_masuk);
+
+        
+    }
 }
 ?>

@@ -82,6 +82,22 @@ $(function(){
     });
 
     $('.tombolTambahBarangMasuk').on('click', function(){
+        $('#barangMasukModalLabel').html('Form Tambah Barang Masuk');
+        $('.modal-footer button[type=submit]').html('Tambah Barang Masuk');
+        $('.modal-body form').attr('action','http://localhost/auliastore/barang_masuk/tambah');
+        $.ajax({
+            url : 'http://localhost/auliastore/barang_masuk/getTanggalBarangMasuk',
+            dataType : 'json',
+            success : function(data){
+                $('#tanggal_barang_masuk').val(data.tanggal_barang_masuk);
+                $('#kode_barang_masuk').val('');
+                $('#kode_barang').val('');
+                $('#jumlah_barang_masuk').val('');
+                $('#tipe_barang').val('');
+                $('#harga_barang_masuk').val('');
+            }
+        });
+       
 
     });
 
@@ -99,9 +115,9 @@ $(function(){
             success : function(data){
                 $('#tanggal_barang_masuk').val(data.tanggal_barang_masuk);
                 $('#kode_barang_masuk').val(data.kode_barang_masuk);
-                $('#kode_barang').val(data.kode_barang);
+                $('#kode_barang').val(data.id_barang);
                 $('#jumlah_barang_masuk').val(data.jumlah_barang_masuk);
-                $('#tipe_barang').val(data.tipe_barang);
+                $('#tipe_barang').val(data.id_tipe_barang);
                 $('#harga_barang_masuk').val(data.harga_barang_masuk);
             }
         });
