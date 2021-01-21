@@ -46,10 +46,17 @@ class Barang_masuk extends CI_Controller{
     }
 
     public function getTanggalBarangMasuk(){
-        $tanggal_masuk=date('d/m/Y');
-        echo json_encode($tanggal_masuk);
+        $this->input->post('id_barang_masuk');
+        $tanggal_barang_masuk=date('d/m/Y');
+        echo json_encode($tanggal_barang_masuk);
+    }
 
-        
+    public function edit(){
+        $id_barang_masuk = $this->input->post('id_barang_masuk');
+
+        $this->Barang_masuk_model->editBarangMasuk($id_barang_masuk);
+        $this->session->set_flashdata('flashdata', 'Data barang masuk berhasil diedit !');
+        redirect('barang_masuk');
     }
 }
 ?>

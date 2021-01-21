@@ -17,7 +17,7 @@ class Barang_model extends CI_Model{
         $data=[
             'kode_barang' => $this->input->post('kode_barang'),
             'nama_barang' => $this->input->post('nama_barang'),
-            'stok_barang' => $this->input->post('stok_barang'),
+            'stok_barang' => 0,
             'harga_barang' => $this->input->post('harga_barang')
         ];
 
@@ -45,7 +45,6 @@ class Barang_model extends CI_Model{
             'id_barang' => $this->input->post('id_barang', true),
             'kode_barang' => $this->input->post('kode_barang', true),
             'nama_barang' => $this->input->post('nama_barang', true),
-            'stok_barang' => $this->input->post('stok_barang', true),
             'harga_barang' => $this->input->post('harga_barang', true)
         ];
         $this->db->where('id_barang',$id_barang);

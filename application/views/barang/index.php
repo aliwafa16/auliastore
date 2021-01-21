@@ -80,11 +80,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="stok_barang">Stok Barang</label>
-                        <input type="text" class="form-control" id="stok_barang" aria-describedby="emailHelp" name="stok_barang">
-                    </div>
-
-                    <div class="form-group">
                         <label for="harga_barang">Harga Barang (Rp)</label>
                         <input type="text" class="form-control" id="harga_barang" aria-describedby="emailHelp" name="harga_barang">
                     </div>

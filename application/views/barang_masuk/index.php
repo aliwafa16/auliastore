@@ -8,7 +8,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <?php if ($this->session->flashdata('flashdata')) : ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong><?= $this->session->flashdata('flashdata') ?></strong>
@@ -47,7 +47,7 @@
                             <td><?= $brg_msk['harga_barang_masuk'] ?></td>
                             <td><?= $brg_msk['tanggal_barang_masuk'] ?></td>
                             <td><?= $brg_msk['tipe_barang'] ?></td>
-                            <td>   
+                            <td>
                                 <a href="<?= base_url() ?>barang_masuk/edit/<?= $brg_msk['id_barang_masuk'] ?>" class="badge badge-success tombolEditBarangMasuk" data-toggle="modal" data-target="#barangMasukModal" data-id_barang_masuk="<?= $brg_msk['id_barang_masuk'] ?>"><i class="fas fa-pen-square"></i> Edit</a>
                                 <a href="<?= base_url() ?>barang_masuk/hapus/<?= $brg_msk['id_barang_masuk'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data barang masuk ?')"> <i class="fas fa-trash-alt fa-sm"></i> Hapus</a>
                             </td>
@@ -73,6 +73,7 @@
             </div>
             <div class="modal-body">
                 <form action="<?= base_url() ?>barang_masuk/tambah" method="post">
+                    <input type="hidden" class="form-control" id="id_barang_masuk" name="id_barang_masuk">
                     <div class="form-group">
                         <label for="tanggal_barang_masuk">Tanggal Barang Masuk</label>
                         <input type="date" class="form-control" id="tanggal_barang_masuk" name="tanggal_barang_masuk">

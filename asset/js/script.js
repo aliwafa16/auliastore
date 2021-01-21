@@ -62,7 +62,6 @@ $(function(){
                 $('#id_barang').val(data.id_barang);
                 $('#kode_barang').val(data.kode_barang);
                 $('#nama_barang').val(data.nama_barang);
-                $('#stok_barang').val(data.stok_barang);
                 $('#harga_barang').val(data.harga_barang);
             }
         });
@@ -95,10 +94,11 @@ $(function(){
                 $('#jumlah_barang_masuk').val('');
                 $('#tipe_barang').val('');
                 $('#harga_barang_masuk').val('');
+
+                // console.log(data);
             }
         });
-       
-
+    
     });
 
     $('.tombolEditBarangMasuk').on('click',function(){
@@ -113,6 +113,7 @@ $(function(){
             method : 'post',
             dataType : 'json',
             success : function(data){
+                $('#id_barang_masuk').val(data.id_barang_masuk);
                 $('#tanggal_barang_masuk').val(data.tanggal_barang_masuk);
                 $('#kode_barang_masuk').val(data.kode_barang_masuk);
                 $('#kode_barang').val(data.id_barang);
