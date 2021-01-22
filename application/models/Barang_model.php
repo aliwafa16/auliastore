@@ -24,6 +24,13 @@ class Barang_model extends CI_Model{
         $this->db->insert('barang',$data);
     }
 
+    public function updateStokIN($quanty, $id_barang){        
+        $this->db->select('stok_barang');
+        $this->db->set('stok_barang', $quanty);
+        $this->db->where('id_barang', $id_barang);
+        $this->db->update('barang');
+    }
+
     public function cekKodeBarang(){
         $this->db->select_max('kode_barang');
         return $this->db->get('barang')->row_array();

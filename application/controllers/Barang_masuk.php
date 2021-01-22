@@ -9,6 +9,7 @@ class Barang_masuk extends CI_Controller{
         $this->load->library('session');
         $this->load->model('Menu_model');
         $this->load->model('Barang_masuk_model');
+        $this->load->model('Barang_model');
         $this->load->library('form_validation');
 
         $this->data['user']=$this->Menu_model->getUserData();
@@ -18,7 +19,6 @@ class Barang_masuk extends CI_Controller{
     public function index(){
         $data['judul']='Barang masuk';
         $data['barang_masuk']=$this->Barang_masuk_model->getAllBarangMasuk();
-
         $data['kode_barang']=$this->Barang_masuk_model->getAllKodeBarang();
 
         $this->load->view('templates/header', $data);
@@ -29,9 +29,15 @@ class Barang_masuk extends CI_Controller{
     }
 
     public function tambah(){
+        $id_barang = $this->input->post('kode_barang');
+        $quanty = $this->input->post('jumlah_barang_masuk');
+
         $this->Barang_masuk_model->tambahBarangMasuk();
+        $this->Barang_model->updateStokIN($id_barang, $quanty);
         $this->session->set_flashdata('flashdata','Data barang masuk berhasil ditambahkan !');
+
         redirect('barang_masuk');
+
     }
 
     public function hapus($id_barang_masuk){
