@@ -30,22 +30,30 @@ class Barang_masuk extends CI_Controller{
 
     public function tambah(){
         $id_barang = $this->input->post('kode_barang');
-        intval($quanty = $this->input->post('jumlah_barang_masuk'));
-        intval($stok_now = $this->Barang_model->cekStokByID($id_barang));
-        intval($stok_total = $quanty + $stok_now);
+        $quanty = $this->input->post('jumlah_barang_masuk');
+        $stok_now = $this->Barang_model->cekStokByID($id_barang);
+
+        $stok_total = intval($quanty) + intval($stok_now['stok_barang']);
         
         $this->Barang_model->updateStokIN($id_barang, $stok_total);
         $this->Barang_masuk_model->tambahBarangMasuk();
         
         $this->session->set_flashdata('flashdata','Data barang masuk berhasil ditambahkan !');
 
-var_dump($stok_total);
-die;
         redirect('barang_masuk');
 
     }
 
-    public function hapus($id_barang_masuk){
+    public function hapus($id_barang_masuk, $id_barang){
+        $id_barang = $this->uri->segment(4);
+
+        $quanty_msk = $this->Barang_masuk_model->cekQuantyBarangMasuk($id_barang_masuk);
+        $stok_now = $this->Barang_model->cekStokByID($id_barang);
+
+        $stok_total = intval($stok_now['stok_barang'])-intval($quanty_msk['jumlah_barang_masuk']);
+
+        $this->Barang_model->updateStokIN($id_barang, $stok_total);
+
         $this->Barang_masuk_model->hapusBarangMasuk($id_barang_masuk);
         $this->session->set_flashdata('flashdata', 'Data barang masuk berhasil dihapus !');
         redirect('barang_masuk');

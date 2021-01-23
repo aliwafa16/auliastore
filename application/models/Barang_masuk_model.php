@@ -6,6 +6,7 @@ class Barang_masuk_model extends CI_Model{
         $this->db->from('barang_masuk');
         $this->db->join('barang', 'barang_masuk.id_barang=barang.id_barang');
         $this->db->join('tipe_barang','barang_masuk.id_tipe_barang=tipe_barang.id_tipe_barang');
+        $this->db->order_by('barang_masuk.kode_barang_masuk', 'ASC');
 
         return $this->db->get()->result_array();
     
@@ -35,6 +36,11 @@ class Barang_masuk_model extends CI_Model{
     public function hapusBarangMasuk($id_barang_masuk){
         $this->db->where('id_barang_masuk', $id_barang_masuk);
         $this->db->delete('barang_masuk');
+    }
+
+    public function cekQuantyBarangMasuk($id_barang_masuk){
+        $this->db->select('jumlah_barang_masuk');
+        return $this->db->get_where('barang_masuk', ['id_barang_masuk' => $id_barang_masuk])->row_array();
     }
 
     public function getBarangMasukByID($id_barang_masuk){

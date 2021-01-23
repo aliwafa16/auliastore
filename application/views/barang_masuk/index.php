@@ -49,7 +49,7 @@
                             <td><?= $brg_msk['tipe_barang'] ?></td>
                             <td>
                                 <a href="<?= base_url() ?>barang_masuk/edit/<?= $brg_msk['id_barang_masuk'] ?>" class="badge badge-success tombolEditBarangMasuk" data-toggle="modal" data-target="#barangMasukModal" data-id_barang_masuk="<?= $brg_msk['id_barang_masuk'] ?>"><i class="fas fa-pen-square"></i> Edit</a>
-                                <a href="<?= base_url() ?>barang_masuk/hapus/<?= $brg_msk['id_barang_masuk'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data barang masuk ?')"> <i class="fas fa-trash-alt fa-sm"></i> Hapus</a>
+                                <a href="<?= base_url() ?>barang_masuk/hapus/<?= $brg_msk['id_barang_masuk'] ?>/<?= $brg_msk['id_barang'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data barang masuk ?')"> <i class="fas fa-trash-alt fa-sm"></i> Hapus</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
