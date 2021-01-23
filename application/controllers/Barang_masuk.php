@@ -30,12 +30,17 @@ class Barang_masuk extends CI_Controller{
 
     public function tambah(){
         $id_barang = $this->input->post('kode_barang');
-        $quanty = $this->input->post('jumlah_barang_masuk');
-
+        intval($quanty = $this->input->post('jumlah_barang_masuk'));
+        intval($stok_now = $this->Barang_model->cekStokByID($id_barang));
+        intval($stok_total = $quanty + $stok_now);
+        
+        $this->Barang_model->updateStokIN($id_barang, $stok_total);
         $this->Barang_masuk_model->tambahBarangMasuk();
-        $this->Barang_model->updateStokIN($id_barang, $quanty);
+        
         $this->session->set_flashdata('flashdata','Data barang masuk berhasil ditambahkan !');
 
+var_dump($stok_total);
+die;
         redirect('barang_masuk');
 
     }

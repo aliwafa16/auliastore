@@ -24,9 +24,13 @@ class Barang_model extends CI_Model{
         $this->db->insert('barang',$data);
     }
 
-    public function updateStokIN($quanty, $id_barang){        
+    public function cekStokByID($id_barang){
         $this->db->select('stok_barang');
-        $this->db->set('stok_barang', $quanty);
+        return $this->db->get_where('barang', ['id_barang'=>$id_barang])->row_array();
+    }
+
+    public function updateStokIN($id_barang, $stok_total){
+        $this->db->set('stok_barang', $stok_total);
         $this->db->where('id_barang', $id_barang);
         $this->db->update('barang');
     }
