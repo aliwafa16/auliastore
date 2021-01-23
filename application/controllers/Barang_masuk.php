@@ -19,7 +19,7 @@ class Barang_masuk extends CI_Controller{
     public function index(){
         $data['judul']='Barang masuk';
         $data['barang_masuk']=$this->Barang_masuk_model->getAllBarangMasuk();
-        $data['kode_barang']=$this->Barang_masuk_model->getAllKodeBarang();
+        $data['kode_barang']=$this->Barang_model->getAllKodeBarang();
 
         $this->load->view('templates/header', $data);
         $this->load->view('templates/sidebar', $this->data);

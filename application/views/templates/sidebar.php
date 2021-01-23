@@ -21,7 +21,7 @@
                 <?php else : ?>
                 <li class="nav-item">
                 <?php endif; ?>
-                <a class="nav-link" href="<?= $smenu['url_submenu'] ?>">
+                <a class="nav-link" href="<?= base_url()?><?= $smenu['url_submenu'] ?>">
                     <i class="<?= $smenu['icon_submenu'] ?>"></i>
                     <span><?= $smenu['nama_submenu'] ?></span></a>
                 </li>

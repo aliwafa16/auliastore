@@ -13,6 +13,14 @@ class Barang_model extends CI_Model{
         return $this->db->count_all('barang');
     }
 
+    public function getAllKodeBarang()
+    {
+        $this->db->select('barang.id_barang,barang.kode_barang,barang.nama_barang');
+        $this->db->from('barang');
+
+        return $this->db->get()->result_array();
+    }
+
     public function tambahBarang(){
         $data=[
             'kode_barang' => $this->input->post('kode_barang'),

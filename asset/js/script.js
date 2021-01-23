@@ -74,7 +74,8 @@ $(function(){
                 "zeroRecords": "Data tidak ditemukan",
                 "info": "Halaman _PAGE_ dari _PAGES_",
                 "infoEmpty" : "Data tidak tersedia",
-                "infoFiltered" : "(hasil pencarian dari _MAX_ data)"
+                "infoFiltered" : "(hasil pencarian dari _MAX_ data)",
+                "scrollX": true
             }
         });
 
