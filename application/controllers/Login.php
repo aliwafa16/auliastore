@@ -42,7 +42,8 @@ class Login extends CI_Controller
                 if (password_verify($password, $user['password_user'])) {
                     $data = [
                         'email_user' => $user['email_user'],
-                        'id_role' => $user['id_role']
+                        'id_role' => $user['id_role'],
+                        'id_user' => $user['id_user']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['id_role'] == 1) {
