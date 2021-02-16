@@ -1,4 +1,3 @@
-$(function(){
 
     $('.tombolTambahMenu').on('click', function(){
         $('#menuModalLabel').html('Form Tambah Menu');
@@ -125,4 +124,49 @@ $(function(){
         });
     });
 
-});
+    $('.addDiskon').on('click',function(){
+        const diskon = $('#diskon').val();
+        const total = $('#total').val();
+        const total_bayar = parseInt(total)-parseInt(diskon);
+
+        $('#total_bayar').val(total_bayar);
+        $('#nominal_total_bayar').val(total_bayar);
+    });
+
+    $('.addBayar').on('click',function(){
+        const jumlah_bayar = $('#jumlah_bayar').val();
+        const nominal_bayar = $('#nominal_total_bayar').val();
+        const total_bayar = parseInt(jumlah_bayar)-parseInt(nominal_bayar);
+
+        $('#uang_kembali').val(total_bayar);
+    });
+
+    $('.editSaleTransaksi').on('click', function(){
+        const id = $(this).data('id_sale_transaksi');
+
+        $.ajax({
+            url : 'http://localhost/auliastore/form_transaksi/getEditSaleTransaksi',
+            data : {id_sale_transaksi : id},
+            method : 'post',
+            dataType :'json',
+            success: function(data){
+                $('#id_sale_transaksi').val(data.id_sale_transaksi);
+                $('#nomor_transaksi_modal').val(data.nomor_transaksi);
+                $('#id_user_modal').val(data.id_user);
+                $('#id_pembeli_modal').val(data.id_pembeli);
+                $('#tanggal_modal').val(data.tanggal);
+                $('#kode_barang_modal').val(data.id_barang);
+                $('#quantity_modal').val(data.quantity);
+                $('#diskon_modal').val(data.diskon);
+            }
+        });
+    });
+
+
+    $('#beli').on('click', function(){
+        let total_bayar = $('#nominal_total_bayar').val();
+
+        console.log(total_bayar);
+
+
+    });
